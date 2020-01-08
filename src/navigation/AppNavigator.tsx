@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
+import authenticationService from "../authentication/authentication.service";
 
 import { Screen } from "./navigation";
 
@@ -26,7 +27,9 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
   headerRight: () => (
     <Button
       onPress={() => {
-        navigation.navigate(Screen.LogIn);
+        authenticationService
+          .logOut()
+          .then(() => navigation.navigate(Screen.LogIn));
       }}
       title="Log out"
     />

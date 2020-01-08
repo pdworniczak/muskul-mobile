@@ -36,7 +36,7 @@ export default function LogInScreen(props) {
             .logIn(email, password)
             .then(result => {
               console.log(result);
-              () => navigate(Screen.Home);
+              navigate(Screen.Home);
             })
             .catch(error => console.log(error))
         }
